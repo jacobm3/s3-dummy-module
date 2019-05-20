@@ -1,11 +1,11 @@
 resource "random_string" "random" {
-  length = 8
+  length = 16
   special = false
 }
 
 resource "aws_s3_bucket" "website_bucket" {
   force_destroy = true
-  bucket = "${var.bucket_name}_${random_string.random.result}"
+  bucket = "${var.bucket_name}-${random_string.random.result}"
   acl    = "public-read"
   cors_rule {
     allowed_headers = ["*"]
