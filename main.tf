@@ -1,6 +1,7 @@
 resource "random_string" "random" {
   length = 16
   special = false
+  upper = false
 }
 
 resource "aws_s3_bucket" "website_bucket" {
