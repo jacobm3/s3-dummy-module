@@ -35,4 +35,8 @@ resource "aws_s3_bucket" "website_bucket" {
     index_document = "index.html"
     error_document = "index.html"
   }
+
+  tags = {
+    owner = "jmartinson@hashicorp.com"
+  }
 }
