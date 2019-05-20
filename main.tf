@@ -3,13 +3,9 @@ resource "random_string" "random" {
   special = false
 }
 
-locals {
-  local_bucket_name = "${var.bucket_name}_${random_string.random}"
-}
-
 resource "aws_s3_bucket" "website_bucket" {
   force_destroy = true
-  bucket = "${local.bucket_name}"
+  bucket = "${var.bucket_name}_${random_string.random}"
   acl    = "public-read"
   cors_rule {
     allowed_headers = ["*"]
