@@ -5,7 +5,7 @@ resource "random_string" "random" {
 
 resource "aws_s3_bucket" "website_bucket" {
   force_destroy = true
-  bucket = "${var.bucket_name}-${var.random}"
+  bucket = "${var.bucket_name}-${random_string.random}"
   acl    = "public-read"
   cors_rule {
     allowed_headers = ["*"]
